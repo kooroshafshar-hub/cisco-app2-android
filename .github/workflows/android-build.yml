@@ -1,19 +1,25 @@
 name: Build Android APK
 
-on: [push, workflow_dispatch]
+on:
+push:
+branches:
+- main
+workflow_dispatch:
 
 permissions:
 contents: read
 
 jobs:
 build:
+name: Build Android APK
 runs-on: ubuntu-24.04
-steps:
-- name: Checkout
-uses: actions/checkout@v4
 
 ```
-  - name: Setup Node
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Setup Node.js
     uses: actions/setup-node@v4
     with:
       node-version: "22"
@@ -27,35 +33,5 @@ uses: actions/checkout@v4
   - name: Setup Android SDK
     uses: android-actions/setup-android@v3
 
-  - name: Install SDK packages
-    run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
-
-  - name: Install dependencies
-    run: npm install --legacy-peer-deps
-
-  - name: Build web app
-    run: npm run build
-
-  - name: Create Android project if needed
-    run: |
-      if [ ! -d android ]; then
-        npx cap add android
-      fi
-
-  - name: Sync Android
-    run: npx cap sync android
-
-  - name: Build APK
-    working-directory: android
-    run: |
-      chmod +x gradlew
-      ./gradlew assembleDebug
-
-  - name: Upload APK
-    uses: actions/upload-artifact@v4
-    with:
-      name: Cisco-App-APK
-      path: android/app/build/outputs/apk/debug/app-debug.apk
-      if-no-files-found: error
-      retention-days: 7
+  - name: Install Android SDK packages
 ```
