@@ -1,8 +1,0 @@
-{
-"appId": "com.ciscoapp.mobile",
-"appName": "Cisco App",
-"webDir": "dist",
-"server": {
-"androidScheme": "https"
-}
-}
