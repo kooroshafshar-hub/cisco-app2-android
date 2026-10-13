@@ -1,8 +1,0 @@
-{
-  "name": "Remix کانفیگ سویچ های سیسکو شرکت لوح سبز جنوب",
-  "description": "سیستم مدیریت پروفایل، تزریق کابل کنسول، لاگ‌گیری، پشتیبان‌گیری، SNMP و RSTP سویچ‌های سیسکو - شرکت لوح سبز جنوب (تهیه کننده: کورش افشار)",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
